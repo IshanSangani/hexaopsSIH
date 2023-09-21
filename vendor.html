@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Portal</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* User Information table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Transaction History table styles */
+        .transaction-history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .transaction-history-table th, .transaction-history-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .transaction-history-table th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Vendor Portal</h1>
+    </div>
+    <div class="container">
+        <h2>User Information</h2>
+        <div class="user-info">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Ration Number</th>
+                        <th>Nominee Names</th>
+                        <th>Inventory</th>
+                    </tr>
+                </thead>
+                <tbody id="user-data">
+                    <!-- User data will be populated here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>Transaction History</h2>
+        <div class="transaction-history">
+            <table class="transaction-history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-data">
+                    <!-- Transaction history data will be populated here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Simulated user data (replace with actual data retrieval)
+        const userData = [
+            { username: 'John Doe', rationNumber: '123456789', nominees: ['Alice Doe', 'Bob Doe'], inventory: 500 },
+            // Add more user data entries as needed
+        ];
+
+        // Simulated transaction history data (replace with actual data retrieval)
+        const transactionData = [
+            { date: '2023-09-01', description: 'Received tokens', quantity: 500, status: 'Success' },
+            { date: '2023-09-10', description: 'Used tokens', quantity: 200, status: 'Success' },
+            // Add more transaction history entries as needed
+        ];
+
+        // Function to populate user data in the table
+        function populateUserData() {
+            const userDataContainer = document.getElementById('user-data');
+            userDataContainer.innerHTML = '';
+
+            userData.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${user.rationNumber}</td>
+                    <td>${user.nominees.join(', ')}</td>
+                    <td>${user.inventory}</td>
+                `;
+                userDataContainer.appendChild(row);
+            });
+        }
+
+        // Function to populate transaction history data in the table
+        function populateTransactionData() {
+            const transactionDataContainer = document.getElementById('transaction-data');
+            transactionDataContainer.innerHTML = '';
+
+            transactionData.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${transaction.date}</td>
+                    <td>${transaction.description}</td>
+                    <td>${transaction.quantity}</td>
+                    <td>${transaction.status}</td>
+                `;
+                transactionDataContainer.appendChild(row);
+            });
+        }
+
+        // Initial population of user data and transaction history data
+        populateUserData();
+        populateTransactionData();
+    </script>
+</body>
+</html>

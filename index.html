@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #qrcode {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* FAQ Section Styles */
+        .faq {
+            margin-top: 20px;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .faq h2 {
+            color: #333;
+        }
+
+        .faq ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .faq li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#" onclick="goBack()">Go Back to Home</a>
+    </header>
+    <div id="container">
+        <h1>QR generated!</h1>
+        <div id="qrcode"></div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="faq">
+        <h2>QR Code FAQs</h2>
+        <ul>
+            <li><strong>How do I use this QR code?</strong><br>
+                You can use a QR code scanner app on your mobile device to scan this QR code. It will lead you to the associated URL.</li>
+            <li><strong>Where can I use QR codes?</strong><br>
+                This QR code can be used at a nearby Ration Centre by a credited Vendor only.</li>
+            <!-- Add more FAQ items as needed -->
+        </ul>
+    </div>
+
+    <script>
+        // Generate the QR code
+        var qr = new QRCode(document.getElementById("qrcode"), {
+            text: "C:\Projects\Normal html\test1\vendor.html", // Change this URL to your desired QR code content
+            width: 128,
+            height: 128
+        });
+
+        function goBack() {
+            // Replace this URL with the actual URL of your website's homepage
+            window.location.href = "https://rcms.mahafood.gov.in/";
+        }
+       
+    </script>
+</body>
+</html>
