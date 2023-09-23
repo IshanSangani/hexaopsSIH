@@ -24,6 +24,14 @@
         header a {
             color: #fff;
             text-decoration: none;
+            margin: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #ff5722;
+        }
+
+        header a:hover {
+            background-color: #f44336;
         }
 
         #container {
@@ -37,6 +45,7 @@
 
         h1 {
             color: #333;
+            font-size: 24px;
         }
 
         #qrcode-container {
@@ -60,6 +69,8 @@
 
         .faq h2 {
             color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
         .faq ul {
@@ -69,6 +80,8 @@
 
         .faq li {
             margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
         }
     </style>
     <script src="qrcode.min.js"></script>
@@ -79,7 +92,7 @@
         <a href="#" onclick="goBack()">Go Back to Home</a>
     </header>
     <div id="container">
-        <h1>QR generated!</h1>
+        <h1>QR Code Generated!</h1>
         <div id="qrcode-container">
             <div id="qrcode" style="width: 200px; height: 200px;"></div>
         </div>
@@ -89,10 +102,16 @@
     <div class="faq">
         <h2>QR Code FAQs</h2>
         <ul>
-            <li><strong>How do I use this QR code?</strong><br>
-                You can use a QR code scanner app on your mobile device to scan this QR code. It will lead you to the associated URL.</li>
-            <li><strong>Where can I use QR codes?</strong><br>
+            <li><strong>Where can I use this QR code?</strong><br>
+                Scan this QR code at a nearby Ration Distributin Shop to claim your Ration.</li>
+            <li><strong>How can scan I this use QR code?</strong><br>
                 This QR code can be used at a nearby Ration Centre by a credited Vendor only.</li>
+            <li><strong>What is my QR code and Why is it Important?</strong><br>
+                Your QR code is a unique identifier that represents your entitlements and transactions in the system. It's crucial for accessing your benefits, verifying the authenticity of ration items, and ensuring fair distribution.</li> 
+            <li><strong>Can I trust that my entitlements will be distributed fairly in this system?</strong><br>
+                The use of blockchain technology ensures transparency and traceability, reducing the chances of unfair distribution and fraud, and providing greater trust in the system.</li>
+            <li><strong>What are the key benefits of the e-ration distribution system for me as a user?</strong><br>
+                Benefits include easy access to entitlement information, reduced waiting times, assurance of receiving the correct entitlements, and a more transparent and efficient distribution process.</li>    
             <!-- Add more FAQ items as needed -->
         </ul>
     </div>
@@ -100,7 +119,7 @@
     <script>
         // Generate the QR code with a larger size
         var qr = new QRCode(document.getElementById("qrcode"), {
-            text: "https://ishansangani.github.io/VendorPortal/", // Change this URL to your desired QR code content
+            text: "https://github.com/IshanSangani/sihtest/blob/main/vendor.html", // Change this URL to your desired QR code content
             width: 200,
             height: 200
         });
