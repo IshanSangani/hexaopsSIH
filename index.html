@@ -22,10 +22,10 @@
 
         /* Header styles */
         .header {
-            background-color: #333; /* Set background color to black */
-            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+            background-color: #333;
+            background-image: url('your-image-url.jpg');
             background-size: cover;
-            background-opacity: 0.7; /* Adjust opacity as needed */
+            background-opacity: 0.7;
             color: #fff;
             padding: 10px;
             display: flex;
@@ -50,7 +50,7 @@
         }
 
         .language-selection label {
-            color: #ccc; /* Text color for the label */
+            color: #ccc;
             font-size: 16px;
             margin-right: 10px;
         }
@@ -64,10 +64,9 @@
             border-radius: 5px;
         }
 
-        /* Style for language options */
         .language-selection select option {
-            background-color: #fff; /* Background color for options */
-            color: #333; /* Text color for options */
+            background-color: #fff;
+            color: #333;
         }
 
         /* Container styles */
@@ -83,10 +82,10 @@
         /* Center-align Transaction History */
         .transaction-history {
             text-align: center;
-            background-color: #f5f5f5; /* Background color for the transaction history section */
-            padding: 20px; /* Add some padding for spacing */
-            border-radius: 10px; /* Add rounded corners */
-            margin-top: 20px; /* Add some top margin for separation */
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         .transaction-history h2 {
@@ -124,10 +123,10 @@
 
         /* User Information styles */
         .user-info {
-            background-color: #f5f5f5; /* Background color for the user information section */
-            padding: 20px; /* Add some padding for spacing */
-            border-radius: 10px; /* Add rounded corners */
-            margin-top: 20px; /* Add some top margin for separation */
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         .user-info h2 {
@@ -155,10 +154,10 @@
         /* Distribution Statistics styles */
         .distribution-stats {
             text-align: center;
-            background-color: #f5f5f5; /* Background color for the statistics section */
-            padding: 20px; /* Add some padding for spacing */
-            border-radius: 10px; /* Add rounded corners */
-            margin-top: 20px; /* Add some top margin for separation */
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         .distribution-stats h2 {
@@ -203,7 +202,7 @@
 
         .navigation-menu ul ul li {
             display: block;
-            margin-bottom: 5px; /* Add spacing between options */
+            margin-bottom: 5px;
         }
 
         .navigation-menu li:hover ul {
@@ -245,6 +244,51 @@
 
         .navigation-menu li:hover .dashboard-options {
             display: block;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+                margin-top: 10px;
+            }
+
+            .language-selection {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .language-selection label {
+                font-size: 14px;
+            }
+
+            .language-selection select {
+                font-size: 14px;
+            }
+
+            .navigation-menu ul {
+                text-align: center;
+            }
+
+            .navigation-menu li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .navigation-menu a {
+                margin: 5px auto;
+            }
+
+            .dashboard-options {
+                left: auto;
+                right: 0;
+            }
         }
     </style>
 </head>
@@ -337,54 +381,51 @@
     </div>
 
     <script>
-        
-            // Get the dashboard options element
-            var dashboardOptions = document.querySelector(".dashboard-options");
-        
-            // Get the navigation menu element
-            var navigationMenu = document.querySelector(".navigation-menu");
-        
-            // Function to toggle the visibility of dashboard options
-            function toggleDashboardOptions() {
-                if (dashboardOptions.style.display === "block") {
-                    dashboardOptions.style.display = "none";
-                    // Remove the click outside listener when the options are closed
-                    document.removeEventListener("click", closeDashboardOptionsOnClickOutside);
-                } else {
-                    dashboardOptions.style.display = "block";
-                    // Add a click outside listener to close the options when clicking outside
-                    document.addEventListener("click", closeDashboardOptionsOnClickOutside);
-                }
+        // Get the dashboard options element
+        var dashboardOptions = document.querySelector(".dashboard-options");
+
+        // Get the navigation menu element
+        var navigationMenu = document.querySelector(".navigation-menu");
+
+        // Function to toggle the visibility of dashboard options
+        function toggleDashboardOptions() {
+            if (dashboardOptions.style.display === "block") {
+                dashboardOptions.style.display = "none";
+                // Remove the click outside listener when the options are closed
+                document.removeEventListener("click", closeDashboardOptionsOnClickOutside);
+            } else {
+                dashboardOptions.style.display = "block";
+                // Add a click outside listener to close the options when clicking outside
+                document.addEventListener("click", closeDashboardOptionsOnClickOutside);
             }
-        
-            // Function to close the dashboard options when clicking outside
-            function closeDashboardOptionsOnClickOutside(e) {
-                if (!navigationMenu.contains(e.target)) {
-                    dashboardOptions.style.display = "none";
-                    // Remove the click outside listener after closing the options
-                    document.removeEventListener("click", closeDashboardOptionsOnClickOutside);
-                }
+        }
+
+        // Function to close the dashboard options when clicking outside
+        function closeDashboardOptionsOnClickOutside(e) {
+            if (!navigationMenu.contains(e.target)) {
+                dashboardOptions.style.display = "none";
+                // Remove the click outside listener after closing the options
+                document.removeEventListener("click", closeDashboardOptionsOnClickOutside);
             }
-        
-            // Add an event listener to the "Dashboard" menu item
-            var dashboardMenuItem = document.querySelector(".navigation-menu li:nth-child(2) a");
-            dashboardMenuItem.addEventListener("click", function (e) {
-                e.preventDefault(); // Prevent the default link behavior
-                toggleDashboardOptions();
-                e.stopPropagation(); // Stop the event from propagating to the document click event
-            });
-        
-            // Function to change the language
-            function changeLanguage() {
-                var select = document.getElementById("language-select");
-                var selectedLanguage = select.value;
-        
-                // You can add logic here to change the language on the page based on the selectedLanguage.
-                // For simplicity, we'll just display an alert.
-                alert("Language changed to " + selectedLanguage);
-            }
-        </script>
-        
-   
+        }
+
+        // Add an event listener to the "Dashboard" menu item
+        var dashboardMenuItem = document.querySelector(".navigation-menu li:nth-child(2) a");
+        dashboardMenuItem.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent the default link behavior
+            toggleDashboardOptions();
+            e.stopPropagation(); // Stop the event from propagating to the document click event
+        });
+
+        // Function to change the language
+        function changeLanguage() {
+            var select = document.getElementById("language-select");
+            var selectedLanguage = select.value;
+
+            // You can add logic here to change the language on the page based on the selectedLanguage.
+            // For simplicity, we'll just display an alert.
+            alert("Language changed to " + selectedLanguage);
+        }
+    </script>
 </body>
 </html>
